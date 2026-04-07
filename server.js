@@ -12,7 +12,6 @@ const port = 8080;
 const data = {
     name: "John Doe",
     age: 30,
-    city: "New York"
 };
 
 //Interpret the get request to the root directory
@@ -36,10 +35,16 @@ server.get('/harvard',(req,res) => {
     `);
 });
 
+// Stringify the data 
+const Data = JSON.stringify(data);
+
 // Send the response data to the user when they request the /data endpoint
 server.get('/data',(req,res) => {
     console.log('User wants to see the data');
-    res.send(data);
+    res.send(`
+        <h3>This is the requested data:</h3>
+        <p>${Data}</p>
+    `);
 });
 
 
