@@ -1,0 +1,17 @@
+#Get an http request to the home page
+
+GET http://localhost:8080/harvard
+
+###Get an http request for data
+
+
+GET http://localhost:8080/data
+
+###Show a request for signup
+
+POST http://localhost:8080/data/signup
+Content-Type: application/json
+
+{
+    "name": "Kvaraskeria"
+}
