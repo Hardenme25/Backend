@@ -9,10 +9,11 @@ const server = express();
 const port = 8080;
 
 // Create a data variable that is gonna be sent to the user when they request it
-const data = {
-    name: "John Doe",
-    age: 30,
-};
+const data = ['Hakimi'];
+
+//Middleware 
+//Add a method interpretor json data to the server
+server.use(express.json());
 
 //Interpret the get request to the root directory
 server.get('/',(req,res) => {
@@ -35,16 +36,22 @@ server.get('/harvard',(req,res) => {
     `);
 });
 
-// Stringify the data 
-const Data = JSON.stringify(data);
 
 // Send the response data to the user when they request the /data endpoint
 server.get('/data',(req,res) => {
     console.log('User wants to see the data');
     res.send(`
         <h3>This is the requested data:</h3>
-        <p>${Data}</p>
+        <p>${data}</p>
     `);
+});
+
+// Handle a post request for signup
+server.post('/data/signup',(req,res) => {
+    const newUser = req.body;
+    data.push(newUser.name);
+    res.sendStatus(201);
+    console.log(newUser);
 });
 
 
