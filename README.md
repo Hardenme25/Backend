@@ -15,7 +15,7 @@ This repository contains my backend development learning and projects using Node
 - REST Client
 
 ##  Project Structure
-- lessons/ → course-based learning
+- lessons/ → project-based learning
 - project/ → combined backend project
 
 ## How to Run
