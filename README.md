@@ -11,7 +11,7 @@ This repository contains my backend development learning and projects using Node
 
 ##  Technologies Used
 - Node.js
-- Express (if used)
+- Express 
 - REST Client
 
 ##  Project Structure
