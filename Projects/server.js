@@ -54,6 +54,12 @@ server.post('/data/signup',(req,res) => {
     console.log(newUser);
 });
 
+// Handle deletion of user data
+server.delete('/api/data',(req,res) => {
+    data.pop();
+    console.log('Deleted the last entry in the names database');
+    res.statusCode(203);
+});
 
 // Now let the server listen to the traffic at that port
 server.listen(port, () => {

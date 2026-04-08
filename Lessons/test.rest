@@ -13,5 +13,9 @@ POST http://localhost:8080/data/signup
 Content-Type: application/json
 
 {
-    "name": "Kvaraskeria"
+    "name": "Morquinhos"
 }
+
+### Deletion of a user
+
+DELETE http://localhost:8080/api/data
