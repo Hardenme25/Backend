@@ -16,15 +16,28 @@ const data = ['Hakimi'];
 server.use(express.json());
 
 //Interpret the get request to the root directory
-server.get('/',(req,res) => {
-    console.log('Get was set to the root directory',req.method);
-    res.sendStatus(200);
+server.get('/homepage',(req,res) => {
+    console.log('Get was set to the homepage',req.method);
+    res.send(`
+        <h1>Welcome to the homepage</h1>
+        <p>Click on the links below to navigate to the different pages</p>
+        <p>
+            <a href=/dashboard>Dashboard</a>
+        </p>
+        <p>    
+            <a href=/harvard>Harvard</a>
+        </p>
+        <p>
+            <a href=/data>Data</a>
+        </p>
+    `);
 });
 
 // Handle requests at the dashboard endpoint
 server.get('/dashboard',(req,res) => {
+    `<a href=/dashboard>Dashboard</a>`;
     console.log('Request has reached the dashboard directory!');
-    res.sendStatus(404);
+    res.status(404).send('The dashboard page is not found');
 });
 
 // Handle the harvard requests
@@ -58,7 +71,7 @@ server.post('/data/signup',(req,res) => {
 server.delete('/api/data',(req,res) => {
     data.pop();
     console.log('Deleted the last entry in the names database');
-    res.statusCode(203);
+    res.status(203).send();
 });
 
 // Now let the server listen to the traffic at that port
