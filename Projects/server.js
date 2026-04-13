@@ -15,6 +15,14 @@ const data = ['Hakimi'];
 //Add a method interpretor json data to the server
 server.use(express.json());
 
+// Interpreting the requests from the homepage
+server.get('/',(req,res) => {
+    {
+        console.log("Homepage has been initiated!");
+        res.status(200).send("Hello, welcome to the homepage!");
+    }
+});
+
 //Interpret the get request to the root directory
 server.get('/homepage',(req,res) => {
     console.log('Get was set to the homepage',req.method);
