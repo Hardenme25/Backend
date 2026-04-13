@@ -8,6 +8,8 @@ This repository contains my backend development learning and projects using Node
 - POST request handling
 - Data storage in memory
 - API endpoints for user data
+- GET request handling
+- DELETE request handling
 
 ##  Technologies Used
 - Node.js
