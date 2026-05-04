@@ -4,6 +4,7 @@ import path, { dirname } from "path";
 import { fileURLToPath } from "url";
 import router1 from "./Routes/authroutes.js";
 import router from "./Routes/todo-addroutes.js";
+import authmiddleware from "./middleware/authMiddleware.js";
 
 // Create an instance for that imported express framework
 const app = express();
@@ -25,7 +26,9 @@ app.use(express.json());
 
 // Using the Routes instance
 app.use("/auth", router1);
-app.use("/todos", router);
+
+// With an authorisation intergration
+app.use("/todos",authmiddleware, router);
 
 // Interprete the get request at the root directory
 app.get("/", (req,res) => {

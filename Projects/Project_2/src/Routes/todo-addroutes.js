@@ -6,7 +6,15 @@ const router = express.Router();
 
 // Handle a get request  to get all todos for a logged in user
 router.get("/", (req,res) => {
-
+    // Prepare a query for the getting all the todos
+    const getTodos = db.prepare(`
+        SELECT * FROM todos WHERE user_id = ?    
+    `);
+    // Get the todos for a specific id
+    const todos = getTodos.all(req.userId);
+    
+    // Now send the todos to the users
+    res.json({todos});
 });
 
 // Handle a post request for a new todo

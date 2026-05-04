@@ -38,9 +38,8 @@ router1.post("/register", (req,res) => {
 
         // Send the token to the user
         // This makes our application fast
-        res.json({ token });
+        res.status(200).json({ token });
 
-        res.sendStatus(200);    
     } catch (err) {
         console.log(err.message);
         res.sendStatus(503);
